@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API_practice_2.Models
 {
+    [Table("universities")]
     public class University
     {
         [Key]

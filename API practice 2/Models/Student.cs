@@ -1,4 +1,6 @@
-﻿namespace API_practice_2.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace API_practice_2.Models
 {
     public class Student
     {
@@ -11,6 +13,9 @@
         public int YearOfBegin {  get; set; }
         public int YearOfEnd { get; set; }
         public string? FormOfFinancing {  get; set; }
-        public List<int> Grades { get; set; } = new();
+        public List<int> Grades { get; set; } = new List<int>();
+
+        [Column(TypeName ="decimal(3,2)")]
+        public decimal GPA { get; set; }
     }
 }

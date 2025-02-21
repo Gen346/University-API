@@ -5,20 +5,9 @@ namespace API_practice_2.Data
 {
     public class ApplicationDBContext : DbContext
     {
-        
-
-        public string connectionString;
-        public ApplicationDBContext() :
-            base()
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options)
+        : base(options)
         {
-            var builder = new ConfigurationBuilder();
-            builder.AddJsonFile("appsettings.json", optional: false);
-            var configuration = builder.Build();
-            connectionString = configuration.GetConnectionString("VPS")!.ToString();
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql(connectionString);
         }
 
         public DbSet<University> Universities { get; set; }
